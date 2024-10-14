@@ -1,20 +1,20 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const DefaultApp = () => {
+const DefaultBla = () => {
   const navigate = useNavigate();
 
   return (
     <div className="w-screen h-screen flex flex-col items-center justify-center bg-white">
-      <p className="text-2xl text-blue-700">This is MFE1 Default App!</p>
+      <p className="text-2xl">Baa, baa, black sheep, have you any wool?</p>
       <button
-        className="mt-5 px-3 py-2 border border-black rounded-full"
-        onClick={() => navigate("/app/sample")}
+        className="mt-5 px-6 py-2 border border-black rounded-full"
+        onClick={() => navigate("/blabla/blacksheep")}
       >
-        Go to sample app
+        🐑⚫
       </button>
     </div>
   );
 };
 
-export default DefaultApp;
+export default DefaultBla;

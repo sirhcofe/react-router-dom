@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  createBrowserRouter,
-  RouterProvider,
-  useParams,
-} from "react-router-dom";
+import { createHashRouter, RouterProvider, useParams } from "react-router-dom";
 import "./style.css";
 import MFE2Home from "./components/MFE2Home.tsx";
 import DefaultBla from "./components/DefaultBla.tsx";
@@ -27,41 +23,36 @@ const Piu = () => {
   );
 };
 
-const browserRouter = createBrowserRouter(
-  [
-    {
-      path: "/",
-      element: <MFE2Home />,
-    },
-    {
-      path: "/piu",
-      element: <Piu />,
-    },
-    {
-      path: "/blabla/*",
-      children: [
-        {
-          path: "",
-          element: <DefaultBla />,
-        },
-        {
-          path: "blacksheep",
-          element: <BlackSheep />,
-        },
-      ],
-    },
-    {
-      path: "/users/:userId",
-      element: <UserPage />,
-    },
-  ],
+const hashRouter = createHashRouter([
   {
-    basename: "/mfe2",
-  }
-);
+    path: "/",
+    element: <MFE2Home />,
+  },
+  {
+    path: "/piu",
+    element: <Piu />,
+  },
+  {
+    path: "/blabla/*",
+    children: [
+      {
+        path: "",
+        element: <DefaultBla />,
+      },
+      {
+        path: "blacksheep",
+        element: <BlackSheep />,
+      },
+    ],
+  },
+  {
+    path: "/users/:userId",
+    element: <UserPage />,
+  },
+]);
 
 const App = () => {
-  return <RouterProvider router={browserRouter} />;
+  return <RouterProvider router={hashRouter} />;
 };
 
 export default App;

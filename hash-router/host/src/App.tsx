@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -59,11 +59,19 @@ const browserRouter = createBrowserRouter([
   },
   {
     path: "/mfe1/*",
-    element: <MFE1App />,
+    element: (
+      <Suspense fallback={<div>Loading MFE1...</div>}>
+        <MFE1App />
+      </Suspense>
+    ),
   },
   {
     path: "/mfe2/*",
-    element: <MFE2App />,
+    element: (
+      <Suspense fallback={<div>Loading MFE2...</div>}>
+        <MFE2App />
+      </Suspense>
+    ),
   },
 ]);
 

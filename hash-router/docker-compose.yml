@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  nginx:
+    container_name: hash-router
+    build:
+      context: .
+      dockerfile: ./nginx/Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - ./host/dist:/usr/share/nginx/html
+      - ./host/public:/usr/share/nginx/html/public
+      - ./mfe1/dist:/usr/share/nginx/html/mfe1
+      - ./mfe1/public:/usr/share/nginx/html/mfe1/public
+      - ./mfe2/dist:/usr/share/nginx/html/mfe2
+      - ./mfe2/public:/usr/share/nginx/html/mfe2/public
